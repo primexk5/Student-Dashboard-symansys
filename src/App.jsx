@@ -23,8 +23,8 @@ function App() {
   return (
     <div>
 
-      <FeesManagement />
-      {/* <Routes>
+     
+      <Routes>
           <Route element={<PageLayout />}>
             <Route path="/" element={<Home isAdmin={isAdmin} />} />
             <Route path="teachers" element={<Teachers />} />
@@ -43,7 +43,7 @@ function App() {
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
-      </Routes> */}
+      </Routes>
     </div>
       
 
