@@ -22,7 +22,9 @@ function App() {
   const  [isAdmin, setIsAdmin] = useState(true)
   return (
     <div>
-      <Routes>
+
+      <FeesManagement />
+      {/* <Routes>
           <Route element={<PageLayout />}>
             <Route path="/" element={<Home isAdmin={isAdmin} />} />
             <Route path="teachers" element={<Teachers />} />
@@ -41,7 +43,7 @@ function App() {
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<PageNotFound />} />
           </Route>
-      </Routes>
+      </Routes> */}
     </div>
       
 
