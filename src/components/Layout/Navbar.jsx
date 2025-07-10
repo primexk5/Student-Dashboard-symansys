@@ -3,7 +3,8 @@ import { CgArrowLeft } from "react-icons/cg"
 import { IoIosNotificationsOutline } from "react-icons/io"
 import { CiSettings } from "react-icons/ci"
 import { BiMessageSquareDots } from "react-icons/bi"
-import logo from '/logo.png'
+// import logo from '/logo.png'
+import nft from '../../assets/nft.webp'
 import { useNavigate} from 'react-router'
 
 const Navbar = () => {
@@ -19,7 +20,7 @@ const Navbar = () => {
           <IoIosNotificationsOutline className='text-4xl bg-gray-100 p-1 rounded-full cursor-pointer'/>
           <BiMessageSquareDots className='text-4xl bg-gray-100 p-1 rounded-full cursor-pointer' onClick={()=>navigate("/message")}/>
           <CiSettings className='text-4xl bg-gray-100 p-1 rounded-full cursor-pointer' onClick={()=>navigate("/settings")}/>
-          <img src={logo} alt="" className='size-14 rounded-full cursor-pointer' />
+          <img src={nft} alt="" className='size-14 rounded-full cursor-pointer w-10 h-10' />
 
       </div>
     </nav>
