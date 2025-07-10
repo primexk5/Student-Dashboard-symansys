@@ -9,7 +9,6 @@ import { CiSettings } from "react-icons/ci";
 import { AiOutlineLogout } from "react-icons/ai";
 
 
-
 const Sidebar = () => {
   return (
       <div className='bg-black text-white  rounded-lg h-full p-4'>
@@ -17,7 +16,7 @@ const Sidebar = () => {
             <img src={logo} alt="" />
             <h2 className='font-bold text-2xl'>Symansys</h2>
          </div>
-         <div className='mt-6'>
+         <div className='mt-6 ml-2'>
         <div className='mt-6'>
           <p className='cursor-pointer flex gap-4 hover:bg-white hover:rounded-md hover:h-10 hover:text-black hover:pt-2 hover:pl-2'><TbSmartHome size={24} />Dashboard</p>
         </div>
