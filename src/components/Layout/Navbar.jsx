@@ -1,13 +1,11 @@
-import React from "react";
-// import { CgArrowLeft } from "react-icons/cg";
-import { IoIosNotificationsOutline } from "react-icons/io";
-import { CiSettings } from "react-icons/ci";
-import { BiMessageSquareDots } from "react-icons/bi";
-import logo from "/logo.png";
-import { CiSearch } from "react-icons/ci";
-import { useNavigate } from "react-router";
-import { FaArrowLeft } from "react-icons/fa6";
-
+import React from 'react'
+import { CgArrowLeft } from "react-icons/cg"
+import { IoIosNotificationsOutline } from "react-icons/io"
+import { CiSettings } from "react-icons/ci"
+import { BiMessageSquareDots } from "react-icons/bi"
+// import logo from '/logo.png'
+import nft from '../../assets/nft.webp'
+import { useNavigate} from 'react-router'
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -33,21 +31,12 @@ const Navbar = () => {
         </div>
       </div>
 
-      <div className="flex items-center gap-6">
-        <IoIosNotificationsOutline className="text-4xl bg-gray-100 p-1 rounded-full cursor-pointer" />
-        <BiMessageSquareDots
-          className="text-4xl bg-gray-100 p-1 rounded-full cursor-pointer"
-          onClick={() => navigate("/message")}
-        />
-        <CiSettings
-          className="text-4xl bg-gray-100 p-1 rounded-full cursor-pointer"
-          onClick={() => navigate("/settings")}
-        />
-        <img
-          src={logo}
-          alt="profile"
-          className="size-14 rounded-full cursor-pointer"
-        />
+      <div className='flex items-center gap-6'>
+          <IoIosNotificationsOutline className='text-4xl bg-gray-100 p-1 rounded-full cursor-pointer'/>
+          <BiMessageSquareDots className='text-4xl bg-gray-100 p-1 rounded-full cursor-pointer' onClick={()=>navigate("/message")}/>
+          <CiSettings className='text-4xl bg-gray-100 p-1 rounded-full cursor-pointer' onClick={()=>navigate("/settings")}/>
+          <img src={nft} alt="" className='size-14 rounded-full cursor-pointer w-10 h-10' />
+
       </div>
     </nav>
   );

@@ -1,539 +1,289 @@
-import React from "react";
-import humansitting from "/assets/Humaaans Sitting.png";
-import header from "/assets/Header.png";
-import chart from "/assets/Pie chart.png";
-import data from "/assets/data.png";
-import button from "/assets/buttons.png";
-import calendar from "/assets/Calendar.png";
-import frame from "/assets/Frame 5000.png";
-import note from "/assets/note.png";
-import check from "/assets/check.png";
-import leader from "/assets/leader.png";
-import { FaRegBell } from "react-icons/fa6";
-import book from "/assets/book.png";
-import video from "/assets/video.png";
-import paper from "/assets/paper.png";
-import { FaArrowLeft } from "react-icons/fa6";
-import { FaArrowRight } from "react-icons/fa6";
-import { MdDisplaySettings } from "react-icons/md";
-import { CiSearch } from "react-icons/ci";
-import { FaRegEdit } from "react-icons/fa";
-import { AiOutlineDelete } from "react-icons/ai";
-import { FaRegArrowAltCircleRight } from "react-icons/fa";
-// import ChartLineDots from "@/components/ChartLineDots";
+import {PieChart, Pie, Cell, Tooltip, ResponsiveContainer} from "recharts";
+import {LineChart, Line, XAxis, YAxis, CartesianGrid, Legend} from "recharts";
+const earningsData = [
+  { month: "Jan", income: 600000, expense: 400000 },
+  { month: "Feb", income: 850000, expense: 500000 },
+  { month: "Mar", income: 670000, expense: 430000 },
+  { month: "Apr", income: 700000, expense: 450000 },
+  { month: "May", income: 750000, expense: 490000 },
+  { month: "Jun", income: 730000, expense: 470000 },
+  { month: "Jul", income: 800000, expense: 510000 },
+  { month: "Aug", income: 620000, expense: 460000 },
+  { month: "Sep", income: 837000, expense: 500000 },
+  { month: "Oct", income: 920000, expense: 520000 },
+  { month: "Nov", income: 880000, expense: 490000 },
+  { month: "Dec", income: 940000, expense: 530000 },
+];
+
+const studentData = [
+  { name: "Boys", value: 3178 },
+  { name: "Girls", value: 2731 },
+];
+
+const COLORS = ["#8E99F3", "#F8D66D"];
 
 const ManagementDashboard = () => {
   return (
-    <div>
-      <div className="mt-2 flex gap-6">
-        <div className="bg-white rounded-3xl w-[850px] h-48 p-4 flex gap-8">
-          <div>
-            <p className="text-black font-medium font-poppins text-2xl">
-              Hey Ashwin.
-            </p>
-            <p className="font-light font-poppins text-customGray pt-2">
-              Welcome back! We're here to support you on your learning journey.
-              Dive into your classes and keep progressing towards your goals
-            </p>
-          </div>
-          <div>
-            <img src={humansitting} alt="human sitting" className="w-[287px]" />
-          </div>
-        </div>
-        <div className="bg-white rounded-3xl w-72 p-4 h-72">
-          <img src={header} alt="header" />
-          <img src={data} alt="data" className="mt-2" />
-          <img src={chart} alt="pie-chart" className="ml-4 mt-4" />
-          <img src={button} alt="button" className="mt-6" />
-        </div>
-        <div className="bg-white rounded-3xl p-4">
-          <img src={calendar} alt="calendar" />
-        </div>
-      </div>
-      <div className="-mt-20 flex gap-1.5">
-        <div>
-          <div className="flex gap-3">
-            <div className="bg-white rounded-2xl p-4 w-36">
-              <div className="flex gap-2">
-                <img src={frame} alt="" />
-                <p className="text-2xl font-poppins font-semibold">80%</p>
-              </div>
-              <p className="text-lightergray font-poppins pt-2">Attendance</p>
-            </div>
-            <div className="bg-white rounded-2xl p-4 w-38">
-              <div className="flex gap-2">
-                <img src={note} alt="" />
-                <p className="text-2xl font-poppins font-semibold">258+</p>
-              </div>
-              <p className="text-lightergray font-poppins pt-2">
-                Task Completed
+    <div className='flex flex-col bg-[#f5f4f9] p-6 gap-6'>
+      <div className='flex flex-col xl:flex-row gap-4'>
+        <div className='flex flex-col flex-1 gap-6'>
+          <div className='bg-white p-6 rounded-2xl shadow flex flex-col xl:flex-row items-start justify-between'>
+            <div className='flex flex-col max-w-xl gap-2'>
+              <h2 className='text-2xl font-semibold text-[#001515]'>
+                Welcome, Laurel Higher Secondary School Team!
+              </h2>
+              <p className='text-gray-600'>
+                Manage your school operations with ease. Stay updated on academics, attendance, finances, and more—all in one place. Let’s keep shaping a brighter future together!
               </p>
             </div>
-          </div>
-          <div className="flex gap-3 mt-3">
-            <div className="bg-white rounded-2xl p-4 w-38">
-              <div className="flex gap-2">
-                <img src={check} alt="" />
-                <p className="text-2xl font-poppins font-semibold">64%</p>
-              </div>
-              <p className="text-lightergray font-poppins pt-2">
-                Task in Progress
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-4 w-36">
-              <div className="flex gap-2">
-                <img src={leader} alt="" />
-                <p className="text-2xl font-poppins font-semibold">245</p>
-              </div>
-              <p className="text-lightergray font-poppins pt-2">
-                Reward Points
-              </p>
+            <div>
+              <img src="src/assets/9f0f9458e4389b5249f2d696c77aab11d2e70871.png" alt="mng-img" className='w-52 h-auto object-contain' />
             </div>
           </div>
-        </div>
-        <div className="bg-white rounded-lg w-64 h-72 p-2">
-          <div className="flex justify-between">
-            <p className="text-xl font-medium font-inter">Notice Board</p>
-            <p className="underline text-grayish">view all</p>
-          </div>
-          <div className="mt-2">
-            <div className="border-2 border-lightsgray p-2 rounded-md">
-              <div className="flex gap-2">
-                <div>
-                  <FaRegBell />
+          <div className='flex flex-col md:flex-row gap-4'>
+            {/* Students Pie Chart */}
+            <div className='bg-white rounded-2xl shadow p-4 flex-1'>
+              <div className='flex justify-between items-center mb-4'>
+                <p className='font-semibold text-lg'>Students</p>
+                <span className='text-2xl'>...</span>
+              </div>
+              <div className="flex flex-col md:flex-row justify-around items-center gap-6 mt-4">
+                <div className="flex flex-col items-center">
+                  <ResponsiveContainer width={150} height={150}>
+                    <PieChart>
+                      <Pie
+                        data={[{ name: "Boys", value: 3178 }]}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={30}
+                        outerRadius={50}
+                        fill="#8E99F3"
+                        dataKey="value"
+                        label
+                      >
+                        <Cell key="Boys" fill="#8E99F3" />
+                      </Pie>
+                      <Tooltip />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <p className="text-sm mt-2 text-gray-600">
+                    Boys: <span className="font-semibold">3,178</span>
+                  </p>
                 </div>
-                <div>
-                  <p className="font-semibold text-sm">
-                    Sports Day Announcement
+                <div className="flex flex-col items-center">
+                  <ResponsiveContainer width={150} height={150}>
+                    <PieChart>
+                      <Pie
+                        data={[{ name: "Girls", value: 2731 }]}
+                        cx="50%"
+                        cy="50%"
+                        innerRadius={30}
+                        outerRadius={50}
+                        fill="#F8D66D"
+                        dataKey="value"
+                        label
+                      >
+                        <Cell key="Girls" fill="#F8D66D" />
+                      </Pie>
+                      <Tooltip />
+                    </PieChart>
+                  </ResponsiveContainer>
+                  <p className="text-sm mt-2 text-gray-600">
+                    Girls: <span className="font-semibold">2,731</span>
                   </p>
                 </div>
               </div>
-              <p className="text-sm font-inter">
-                The school's Annual Sports Day will be held on May 12, 2024.
-                Mark your calendars!
-              </p>
             </div>
-            <div className="border-2 border-lightsgray p-2 rounded-md mt-2">
-              <div className="flex gap-2">
-                <div>
-                  <FaRegBell />
+            <div className="flex flex-col bg-white p-4 rounded-2xl w-full lg:w-1/2 shadow">
+              <div className="flex justify-between items-center">
+                <p className="text-lg font-medium">Notice Board</p>
+                <span className="text-blue-600 cursor-pointer underline">view all</span>
+              </div>
+              <div className="flex flex-col gap-4 mt-4">
+                <div className="flex gap-4 items-start bg-yellow-100 rounded-lg p-3">
+                  <img src="src/assets/images/Vector.png" alt="" className="w-6 h-6 mt-1" />
+                  <div>
+                    <h2 className="font-semibold text-base">Sports Day Announcement</h2>
+                    <p className="text-sm text-gray-600">
+                      The school's Annual Sports Day will be held on May 12, 2024. Mark your calendars!
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="font-semibold text-sm">
-                    Summer Break Start Date
-                  </p>
+                <div className="flex gap-4 items-start bg-purple-100 rounded-lg p-3">
+                  <img src="src/assets/images/Vector.png" alt="" className="w-6 h-6 mt-1" />
+                  <div>
+                    <h2 className="font-semibold text-base">Summer Break Start Date</h2>
+                    <p className="text-sm text-gray-600">
+                      Summer break begins on May 25, 2024. Have a wonderful holiday!
+                    </p>
+                  </div>
+                </div>
+                <div className="flex gap-2 mt-2">
+                  <button className="bg-blue-500 text-white px-4 py-1 rounded-full text-sm">
+                    Add New
+                  </button>
+                  <button className="bg-yellow-500 text-white px-4 py-1 rounded-full text-sm">
+                    Edit
+                  </button>
+                  <button className="bg-red-500 text-white px-4 py-1 rounded-full text-sm">
+                    Delete
+                  </button>
                 </div>
               </div>
-              <p className="text-sm font-inter">
-                Summer break begins on May 25, 2024. Have a wonderful holiday!
-              </p>
             </div>
           </div>
         </div>
-        <div className="bg-white rounded-lg h-44 p-4 mt-24">
-          <div className="flex justify-between">
-            <p className="font-inter font-medium text-xl">Resources</p>
-            <p className="underline text-grayish">view all</p>
-          </div>
-          <div className="flex gap-4 mt-4">
-            <div>
-              <img src={book} alt="book" />
-              <p className="flex items-center justify-center font-inter font-medium">
-                Book
-              </p>
+        {/* Right Section */}
+        <div className='flex flex-col gap-4 w-[300px]'>
+          <div className='space-y-3'>
+            <div className='bg-yellow-200 p-4 rounded-xl shadow'>
+              <div className='flex justify-between'><p>Students</p><span>...</span></div>
+              <h2 className='text-2xl font-bold'>5,909</h2>
             </div>
-            <div>
-              <img src={video} alt="video" />
-              <p className="flex items-center justify-center font-inter font-medium">
-                Video
-              </p>
+            <div className='bg-purple-200 p-4 rounded-xl shadow'>
+              <div className='flex justify-between'><p>Teachers</p><span>...</span></div>
+              <h2 className='text-2xl font-bold'>60</h2>
             </div>
-            <div>
-              <img src={paper} alt="paper" />
-              <p className="flex items-center justify-center font-inter font-medium">
-                Paper
-              </p>
+            <div className='bg-yellow-200 p-4 rounded-xl shadow'>
+              <div className='flex justify-between'><p>Employees</p><span>...</span></div>
+              <h2 className='text-2xl font-bold'>100</h2>
             </div>
           </div>
-        </div>
-        <div className="bg-white rounded-lg w-48 h-84 mt-24">
-          <div className="p-4 flex gap-4">
-            <div className="bg-white rounded-md shadow-md p-2 w-8">
-              <FaArrowLeft />
+
+          <div className='relative p-4 bg-white rounded-xl shadow text-center'>
+            <p className='text-gray-600 text-sm mb-2'>Calendar</p>
+            <div className="text-xs text-gray-700">
+              <div className="grid grid-cols-7 gap-1 font-medium mb-2">
+                {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+                  <div key={day} className="text-center text-gray-500">{day}</div>
+                ))}
+              </div>
+              <div className="grid grid-cols-7 gap-1">
+                <div></div>
+                {[...Array(30)].map((_, i) => {
+                  const day = i + 1;
+                  const isToday = day === new Date().getDate() && new Date().getMonth() === 8;
+                  return (
+                    <div
+                      key={day}
+                      className={`text-center py-1 rounded-full ${
+                        isToday ? "bg-blue-500 text-white font-bold" : "hover:bg-gray-200"
+                      }`}
+                    >
+                      {day}
+                    </div>
+                  );
+                })}
+              </div>
             </div>
-            <p className="font-semibold font-poppins pt-1">Monday</p>
-            <div className="bg-white rounded-md shadow-md p-2 w-8">
-              <FaArrowRight />
-            </div>
+            <button className='mt-3 text-sm px-4 py-2 bg-gray-800 text-white rounded-full absolute left-1/2 -translate-x-1/2 bottom-4'>Manage Calendar</button>
           </div>
-          <div className="text-center items-center">
-            <div>
-              <p className="font-poppins text-grayCustom">Tamil</p>
+          <div className='bg-white rounded-xl shadow p-4 space-y-2'>
+            <div className='flex justify-between items-center'>
+              <h2 className='text-sm font-medium'>Financial Overview</h2>
+              <div className='flex gap-1 text-xs'>
+                <button className='px-2 py-1 bg-gray-200 rounded-full'>2023-2024</button>
+                <button className='px-2 py-1 bg-gray-200 rounded-full'>Annual</button>
+              </div>
             </div>
-            <div>
-              <p className="font-poppins text-grayCustom">English</p>
+            <div className='bg-blue-100 p-3 rounded-lg'>
+              <h2 className='text-xl font-bold'>₹29,545,000</h2>
+              <p className='text-xs text-gray-600'>Total Income</p>
             </div>
-            <div className="flex justify-center items-center">
-              <p className="bg-softBlue h-6 p-0.5 rounded-full w-28 text-sm text-blue-500">
-                Break
-              </p>
-            </div>
-            <div>
-              <p className="font-poppins text-grayCustom">Math</p>
-            </div>
-            <div>
-              <p className="font-poppins text-grayCustom">Science</p>
-            </div>
-            <div className="flex justify-center items-center">
-              <p className="bg-softYellow h-6 p-0.5 rounded-full w-28 text-sm text-textYellow">
-                Lunch
-              </p>
-            </div>
-            <div>
-              <p className="font-poppins text-grayCustom">Social</p>
-            </div>
-            <div>
-              <p className="font-poppins text-grayCustom">CS</p>
-            </div>
-            <div className="flex justify-center items-center">
-              <p className="bg-softBlue h-6 p-0.5 rounded-full w-28 text-sm text-blue-500">
-                Break
-              </p>
-            </div>
-            <div>
-              <p className="font-poppins text-grayCustom">Tamil</p>
-            </div>
-            <div>
-              <p className="font-poppins text-grayCustom">English</p>
+            <div className='bg-blue-100 p-3 rounded-lg'>
+              <h2 className='text-xl font-bold'>₹19,291,266</h2>
+              <p className='text-xs text-gray-600'>Total Expenses</p>
             </div>
           </div>
         </div>
       </div>
-      <div className="flex gap-4">
-        <div>
-          <div className="bg-white rounded-lg p-4 w-80 h-56 -mt-32">
-            <div className="flex justify-between">
-              <p className="font-inter font-semibold">Test Score activity</p>
-              <p>Monthly</p>
+      <div className="grid grid-cols-1 xl:grid-cols-3 gap-6">
+        <div className="bg-white p-6 rounded-2xl shadow col-span-1 xl:col-span-2 space-y-4">
+          <div className="flex justify-between items-center mb-4">
+            <h3 className="text-lg font-medium">Earnings</h3>
+            <div className="flex gap-2 text-sm text-gray-500">
+              <div className="flex items-center gap-1">
+                <span className="w-3 h-3 bg-blue-300 rounded-full"></span>
+                Income
+              </div>
+              <div className="flex items-center gap-1">
+                <span className="w-3 h-3 bg-purple-300 rounded-full"></span>
+                Expense
+              </div>
             </div>
           </div>
-          <div>{/* <ChartLineDots /> */}</div>
+          <ResponsiveContainer width="100%" height={250}>
+            <LineChart data={earningsData}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="month" />
+              <YAxis />
+              <Tooltip />
+              <Legend />
+              <Line
+                type="monotone"
+                dataKey="income"
+                stroke="#8ED0F3"
+                strokeWidth={3}
+                dot={false}
+              />
+              <Line
+                type="monotone"
+                dataKey="expense"
+                stroke="#BCA3F1"
+                strokeWidth={3}
+                dot={false}
+              />
+            </LineChart>
+          </ResponsiveContainer>
         </div>
-        <div className="bg-white w-[485px] h-72 rounded-md -mt-32 p-4">
-          <div className="flex justify-between">
-            <p className="font-inter text-lg font-semibold">Grade by Subject</p>
-            <div className="flex gap-2">
-              <p>Exam</p>
-              <p>Monthly</p>
+        <div className="space-y-6">
+          <div className="bg-white p-4 rounded-2xl shadow space-y-4">
+            <div className="flex justify-between items-center">
+              <p className="text-lg font-medium">Fee Status</p>
+              <span className="text-xl">...</span>
             </div>
+            <div className="space-y-2">
+              <div className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+                <h3 className="text-xl font-bold">1,335</h3>
+                <span className="text-sm bg-green-100 text-green-800 px-3 py-1 rounded-full">Paid</span>
+              </div>
+              <div className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+                <h3 className="text-xl font-bold">4,366</h3>
+                <span className="text-sm bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full">Pending</span>
+              </div>
+              <div className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+                <h3 className="text-xl font-bold">208</h3>
+                <span className="text-sm bg-red-100 text-red-800 px-3 py-1 rounded-full">Overdue</span>
+              </div>
+            </div>
+            <button className="text-sm px-3 py-1 bg-gray-200 rounded-full mt-2 w-fit">Annual</button>
           </div>
-          <div className="mt-4 flex gap-2">
-            <div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden">
-                <div className="bg-lightishBlue h-full w-36 rounded-md"></div>
-              </div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden mt-2">
-                <div className="bg-lightishBlue h-full w-44 rounded-md"></div>
-              </div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden mt-2">
-                <div className="bg-lightishBlue h-full w-36 rounded-md"></div>
-              </div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden mt-2">
-                <div className="bg-lightishBlue h-full w-48 rounded-md"></div>
-              </div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden mt-2">
-                <div className="bg-lightishBlue h-full w-40 rounded-md"></div>
-              </div>
+          {/* Messages */}
+          <div className="bg-white p-4 rounded-2xl shadow space-y-4">
+            <div className="flex justify-between items-center">
+              <p className="text-lg font-medium">Messages</p>
+              <span className="text-xl">...</span>
             </div>
-            <div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden">
-                <div className="bg-lightishBlue h-full w-36 rounded-md"></div>
-              </div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden mt-2">
-                <div className="bg-lightishBlue h-full w-44 rounded-md"></div>
-              </div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden mt-2">
-                <div className="bg-lightishBlue h-full w-36 rounded-md"></div>
-              </div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden mt-2">
-                <div className="bg-lightishBlue h-full w-48 rounded-md"></div>
-              </div>
-              <div className="bg-lightishGray rounded-md h-8 w-56 overflow-hidden mt-2">
-                <div className="bg-lightishBlue h-full w-40 rounded-md"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex gap-6">
-        <div className="w-[800px] h-full bg-white rounded-lg mt-6 p-6">
-          <div className="flex justify-between mr-12">
-            <p className="font-inter text-lg font-semibold">Assignments</p>
-            <div className="flex gap-4">
-              <MdDisplaySettings size={24} className="mt-2" />
-              <div className="relative w-56">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3">
-                  <CiSearch
-                    className="text-gray-500 cursor-pointer"
-                    size={20}
-                  />
+
+            {/* Message list */}
+            {[
+              { name: "Jane Cooper", message: "Don’t forget the lab rep...", time: "12:34pm", img: "https://i.pravatar.cc/30?img=1" },
+              { name: "Kristin Watson", message: "Do we have maths test", time: "12:34pm", img: "https://i.pravatar.cc/30?img=2" },
+              { name: "Jenny Wilson", message: "Wud?", time: "12:34pm", img: "https://i.pravatar.cc/30?img=3" },
+              { name: "Brooklyn Sim", message: "Did Sachin gave any ki...", time: "12:34pm", img: "https://i.pravatar.cc/30?img=4" },
+              { name: "Darrell Steward", message: "Can we go for a movie...", time: "12:34pm", img: "https://i.pravatar.cc/30?img=5" },
+            ].map((msg, i) => (
+              <div key={i} className="flex items-center justify-between p-2 border border-gray-100 rounded-lg">
+                <div className="flex items-center gap-3">
+                  <img src={msg.img} alt={msg.name} className="w-10 h-10 rounded-full" />
+                  <div>
+                    <h3 className="font-medium text-sm">{msg.name}</h3>
+                    <p className="text-xs text-gray-500">{msg.message}</p>
+                  </div>
                 </div>
-                <input
-                  type="search"
-                  className="h-11 w-72 rounded-full p-4 pl-9 bg-lightBlue focus:outline-none focus:ring-2 focus:ring-blue-500 focus:bg-white"
-                  placeholder="Search"
-                />
+                <span className="text-xs text-gray-400">{msg.time}</span>
               </div>
-            </div>
-          </div>
-          <div className="p-6 rounded-2xl bg-white shadow-md w-full overflow-x-auto">
-            <table className="min-w-full text-sm text-left rounded-md">
-              <thead className="bg-blue-50 rounded-md">
-                <tr>
-                  <th className="px-4 py-3 font-semibold text-gray-700">No</th>
-                  <th className="px-4 py-3 font-semibold text-gray-700">
-                    Task
-                  </th>
-                  <th className="px-4 py-3 font-semibold text-gray-700">
-                    Subject
-                  </th>
-                  <th className="px-4 py-3 font-semibold text-gray-700">
-                    Due Date
-                  </th>
-                  <th className="px-4 py-3 font-semibold text-gray-700">
-                    Status
-                  </th>
-                  <th className="px-4 py-3 font-semibold text-gray-700">
-                    Action
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y space-y-4">
-                <tr className="hover:bg-gray-50 mt-6">
-                  <td className="px-4 py-3">01</td>
-                  <td className="px-4 py-3">Read Chapter 1-3</td>
-                  <td className="px-4 py-3">English</td>
-                  <td className="px-4 py-3">12 May 2024</td>
-                  <td className="text-blue-600 bg-blue-100 pl-4 w-18 h-8 rounded-full text-xs font-medium">
-                    In Progress
-                  </td>
-                  <td className="px-4 py-3 space-x-2">
-                    <button className="text-blue-500 hover:text-blue-700">
-                      <FaRegEdit />
-                    </button>
-                    <button className="text-green-500 hover:text-green-700">
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 mt-6">
-                  <td className="px-4 py-3">02</td>
-                  <td className="px-4 py-3">Complete Problem Set #5</td>
-                  <td className="px-4 py-3">Maths</td>
-                  <td className="px-4 py-3">12 May 2024</td>
-                  <td className="text-red-600 bg-red-100 pl-4 w-18 h-8 rounded-full text-xs font-medium">
-                    Not Started
-                  </td>
-                  <td className="px-4 py-3 space-x-2">
-                    <button className="text-blue-500 hover:text-blue-700">
-                      <FaRegEdit />
-                    </button>
-                    <button className="text-green-500 hover:text-green-700">
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 mt-6">
-                  <td className="px-4 py-3">03</td>
-                  <td className="px-4 py-3">
-                    Write Lab Report on Acid-Base Titration
-                  </td>
-                  <td className="px-4 py-3">Physics</td>
-                  <td className="px-4 py-3">12 May 2024</td>
-                  <td className="text-blue-600 bg-blue-100 pl-4 w-18 h-8 rounded-full text-xs font-medium">
-                    In Progress
-                  </td>
-                  <td className="px-4 py-3 space-x-2">
-                    <button className="text-blue-500 hover:text-blue-700">
-                      <FaRegEdit />
-                    </button>
-                    <button className="text-green-500 hover:text-green-700">
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 mt-6">
-                  <td className="px-4 py-3">04</td>
-                  <td className="px-4 py-3">Prepare for Oral Presentation</td>
-                  <td className="px-4 py-3">Chemistry</td>
-                  <td className="px-4 py-3">12 May 2024</td>
-                  <td className="text-blue-600 bg-blue-100 pl-4 w-18 h-8 rounded-full text-xs font-medium">
-                    In Progress
-                  </td>
-                  <td className="px-4 py-3 space-x-2">
-                    <button className="text-blue-500 hover:text-blue-700">
-                      <FaRegEdit />
-                    </button>
-                    <button className="text-green-500 hover:text-green-700">
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 mt-6">
-                  <td className="px-4 py-3">05</td>
-                  <td className="px-4 py-3">
-                    Create Art Piece for Final Project
-                  </td>
-                  <td className="px-4 py-3">English</td>
-                  <td className="px-4 py-3">12 May 2024</td>
-                  <td className="text-green-600 bg-blue-50 pl-4 w-18 h-8 rounded-full text-xs font-medium">
-                    Completed
-                  </td>
-                  <td className="px-4 py-3 space-x-2">
-                    <button className="text-blue-500 hover:text-blue-700">
-                      <FaRegEdit />
-                    </button>
-                    <button className="text-green-500 hover:text-green-700">
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 mt-6">
-                  <td className="px-4 py-3">06</td>
-                  <td className="px-4 py-3">
-                    Write Research Paper on Climate Change
-                  </td>
-                  <td className="px-4 py-3">EVS</td>
-                  <td className="px-4 py-3">12 May 2024</td>
-                  <td className="text-blue-600 bg-blue-100 pl-4 w-18 h-8 rounded-full text-xs font-medium">
-                    In Progress
-                  </td>
-                  <td className="px-4 py-3 space-x-2">
-                    <button className="text-blue-500 hover:text-blue-700">
-                      <FaRegEdit />
-                    </button>
-                    <button className="text-green-500 hover:text-green-700">
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 mt-6">
-                  <td className="px-4 py-3">07</td>
-                  <td className="px-4 py-3">Complete Math Quiz on Algebra</td>
-                  <td className="px-4 py-3">Math</td>
-                  <td className="px-4 py-3">12 May 2024</td>
-                  <td className="text-green-600 bg-green-100 pl-4 w-18 h-8 rounded-full text-xs font-medium">
-                    Completed
-                  </td>
-                  <td className="px-4 py-3 space-x-2">
-                    <button className="text-blue-500 hover:text-blue-700">
-                      <FaRegEdit />
-                    </button>
-                    <button className="text-green-500 hover:text-green-700">
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 mt-6">
-                  <td className="px-4 py-3">08</td>
-                  <td className="px-4 py-3">
-                    Prepare for History Class Debate
-                  </td>
-                  <td className="px-4 py-3">History</td>
-                  <td className="px-4 py-3">12 May 2024</td>
-                  <td className="text-red-600 bg-red-100 pl-4 w-18 h-8 rounded-full text-xs font-medium">
-                    Not Started
-                  </td>
-                  <td className="px-4 py-3 space-x-2">
-                    <button className="text-blue-500 hover:text-blue-700">
-                      <FaRegEdit />
-                    </button>
-                    <button className="text-green-500 hover:text-green-700">
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
-                </tr>
-                <tr className="hover:bg-gray-50 mt-6">
-                  <td className="px-4 py-3">09</td>
-                  <td className="px-4 py-3">
-                    Submit Final Design for Architecture Project
-                  </td>
-                  <td className="px-4 py-3">Architecture</td>
-                  <td className="px-4 py-3">12 May 2024</td>
-                  <td className="text-blue-600 bg-blue-100 pl-4 w-18 h-8 rounded-full text-xs font-medium">
-                    In Progress
-                  </td>
-                  <td className="px-4 py-3 space-x-2">
-                    <button className="text-blue-500 hover:text-blue-700">
-                      <FaRegEdit />
-                    </button>
-                    <button className="text-green-500 hover:text-green-700">
-                      <AiOutlineDelete />
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-            <div className="flex justify-between items-center text-sm text-gray-500 mt-4 px-2">
-              <button className="px-3 py-1 rounded border hover:bg-gray-100">
-                Previous
-              </button>
-              <p className="text-gray-500">Page 1 of 12</p>
-              <button className="px-3 py-1 rounded border hover:bg-gray-100">
-                Next
-              </button>
-            </div>
-          </div>
-        </div>
-        <div className="bg-white w-52 rounded-md h-[450px] p-4 mt-6">
-          <div className="flex justify-between">
-            <p className="font-inter font-semibold text-2xl">Messages</p>
-            <FaRegArrowAltCircleRight size={20} className="mt-1" />
-          </div>
-          <div className="flex gap-2 mt-4">
-            <div>
-              <img src="/public/assets/Profile.png" alt="" />
-            </div>
-            <div>
-              <p className="font-inter">Jane Cooper</p>
-              <p className="font-inter text-sm text-grayish">Don’t forget the lab rep...</p>
-            </div>
-          </div>
-          <div className="flex gap-2 mt-2">
-            <div>
-              <img src="/public/assets/Profile.png" alt="" />
-            </div>
-            <div>
-              <p className="font-inter">Jane Cooper</p>
-              <p className="font-inter text-sm text-grayish">Don’t forget the lab rep...</p>
-            </div>
-          </div>
-          <div className="flex gap-2 mt-2">
-            <div>
-              <img src="/public/assets/Profile.png" alt="" />
-            </div>
-            <div>
-              <p className="font-inter">Jane Cooper</p>
-              <p className="font-inter text-sm text-grayish">Don’t forget the lab rep...</p>
-            </div>
-          </div>
-          <div className="flex gap-2 mt-2">
-            <div>
-              <img src="/public/assets/Profile.png" alt="" />
-            </div>
-            <div>
-              <p className="font-inter">Jane Cooper</p>
-              <p className="font-inter text-sm text-grayish">Don’t forget the lab rep...</p>
-            </div>
-          </div>
-          <div className="flex gap-2 mt-2">
-            <div>
-              <img src="/public/assets/Profile.png" alt="" />
-            </div>
-            <div>
-              <p className="font-inter">Jane Cooper</p>
-              <p className="font-inter text-sm text-grayish">Don’t forget the lab rep...</p>
-            </div>
+            ))}
           </div>
         </div>
       </div>
