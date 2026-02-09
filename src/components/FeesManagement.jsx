@@ -1,4 +1,8 @@
 import React from 'react'
+<<<<<<< HEAD
+import logo from "/logo.png"
+=======
+>>>>>>> main
 import first from "/first.png"
 import sec from "/sec.png"
 import third from "/third.png"
@@ -18,16 +22,28 @@ const FeesManagement = () => {
 
     <div> 
 
+<<<<<<< HEAD
+    <h1 className='text-4xl font-medium pt-20 ml-[390px]'>Fees Management</h1>
+
+  
+      <div className='flex gap-3 justify-end pr-5'>
+      <img className='h-[350px] relative top-9 ' src={first} alt="" />
+=======
     <h1 className='text-4xl font-medium ml-5 pt-20 '>Fees Management</h1>
 
   
       <div className='flex gap-3 justify-end ml-5 pr-5'>
       <img className='h-[340px] relative top-9 ' src={first} alt="" />
+>>>>>>> main
         <img className='w-[250px]' src={sec} alt="" />
         <img className='w-[500px]' src={third} alt="" />
       </div>
 
+<<<<<<< HEAD
+     <div className='bg-white mt-3 rounded-2xl ml-[385px] mr-6'>
+=======
      <div className='bg-white mt-3 rounded-2xl ml-5 mr-6'>
+>>>>>>> main
 
      <div className='p-10'>
      <div className='flex justify-between'>
