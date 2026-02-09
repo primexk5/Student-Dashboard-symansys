@@ -25,23 +25,28 @@ function App() {
 
      
       <Routes>
+        
           <Route element={<PageLayout />}>
             <Route path="/" element={<Home isAdmin={isAdmin} />} />
             <Route path="teachers" element={<Teachers />} />
+
             <Route path="students" element={<Students />}>
               <Route index element={<AllStudentsLists />} />
               <Route path="addnew" element={<AddNew />} />
             </Route>
+
             <Route path="fees" element={<Fees />} />
             <Route path="finance" element={<Finance />}>
               <Route index element={<FeesManagement />} />
               <Route path="schoolexpenses" element={<SchoolExpenses />} />
             </Route>
+
             <Route path="calendar" element={<Calender />} />
             <Route path="timetable" element={<Timetable />} />
             <Route path="message" element={<Message />} />
             <Route path="settings" element={<Settings />} />
             <Route path="*" element={<PageNotFound />} />
+
           </Route>
       </Routes>
     </div>
